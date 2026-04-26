@@ -1,0 +1,28 @@
+# Secretos y configuración local
+.env
+
+# Cookies de sesión (NUNCA subir — contienen sesiones activas)
+cookies/
+cookies_*.json
+
+# Logs
+logs/
+log.txt
+*.log
+
+# Debug sessions
+docs/debug/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+venv/
+
+# IDE
+.windsurf/
+.vscode/
+.idea/
+
+# Cuentas locales
+accounts.json

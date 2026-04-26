@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ANTI-API</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <div class="shell">
+
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+        <div class="logo">
+          <div class="logo-icon">⚡</div>
+          <div class="logo-text">
+            <span class="logo-name">ANTI-API</span>
+            <span class="logo-sub">Webchat local</span>
+          </div>
+        </div>
+
+        <!-- Modelo activo (el que tiene el tab abierto) -->
+        <nav class="nav-section">
+          <div class="nav-label">Modelo activo</div>
+          <div class="active-model-display" id="active-model-display">—</div>
+          <div class="model-info" id="model-info-box">
+            <span id="model-description">Haz clic en un tab de modelo</span>
+          </div>
+        </nav>
+
+        <!-- Cookies del modelo activo -->
+        <nav class="nav-section">
+          <div class="nav-label">Cookies del modelo</div>
+          <div class="cookie-status-row">
+            <span class="cookie-dot" id="cookie-dot"></span>
+            <span id="cookie-status-text">Sin configurar</span>
+          </div>
+          <textarea id="cookie-json-input" placeholder='{"sso":"...","sso-rw":"..."}'></textarea>
+          <div class="btn-stack">
+            <button id="save-cookie-button" class="btn btn-ghost">Guardar</button>
+            <button id="load-cookie-button" class="btn btn-ghost">Cargar</button>
+            <button id="verify-button" class="btn btn-green">Verificar conexión</button>
+          </div>
+          <div id="verify-result" class="verify-msg" hidden></div>
+        </nav>
+
+        <!-- Opciones -->
+        <nav class="nav-section">
+          <div class="nav-label">Opciones</div>
+          <label class="toggle-row">
+            <input type="checkbox" id="headless-checkbox" checked />
+            <span class="toggle-track"><span class="toggle-thumb"></span></span>
+            <span>Headless (sin ventana)</span>
+          </label>
+          <label class="toggle-row" style="margin-top:6px">
+            <input type="checkbox" id="keep-page-checkbox" checked />
+            <span class="toggle-track"><span class="toggle-thumb"></span></span>
+            <span>Conversación continua</span>
+          </label>
+          <button id="new-chat-button" class="btn btn-ghost" style="margin-top:8px">
+            ↺ Nueva conversación
+          </button>
+        </nav>
+
+        <div class="sidebar-footer">
+          <div class="status-pill" id="status-pill">
+            <span class="status-dot" id="status-dot"></span>
+            <span id="status-text">Iniciando...</span>
+          </div>
+        </div>
+      </aside>
+
+      <!-- MAIN -->
+      <main class="main">
+
+        <!-- TABS de modelos -->
+        <div class="model-tabs" id="model-tabs">
+          <!-- Se generan dinámicamente -->
+        </div>
+
+        <!-- PANELES de chat — uno por modelo -->
+        <div class="chat-panels" id="chat-panels">
+          <!-- Se generan dinámicamente -->
+        </div>
+
+        <!-- INPUT BAR — compartida, envía al modelo del tab activo -->
+        <div class="input-bar">
+          <div class="input-wrapper">
+            <textarea
+              id="prompt-input"
+              placeholder="Escribe tu pregunta..."
+              rows="1"
+            ></textarea>
+            <button id="send-button" class="send-btn" title="Enviar (Enter)">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+          <div class="input-meta">
+            <span id="turn-counter">0 turnos</span>
+            <div class="input-meta-actions">
+              <button id="sort-date-button" class="btn-link" title="Ordenar por fecha de envio">Ordenar por fecha</button>
+              <span class="meta-sep">|</span>
+              <button id="clear-history-button" class="btn-link">Limpiar historial</button>
+            </div>
+          </div>
+        </div>
+
+      </main>
+    </div>
+
+    <!-- Error toast -->
+    <div class="toast" id="toast" hidden>
+      <span id="toast-text"></span>
+      <button onclick="document.getElementById('toast').hidden=true">✕</button>
+    </div>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>

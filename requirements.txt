@@ -1,0 +1,7 @@
+playwright
+flask
+python-dotenv
+python-telegram-bot>=20.0
+ollama
+aiohttp
+aiofiles

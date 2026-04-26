@@ -1,0 +1,26 @@
+[
+  {
+    "name": "meta",
+    "display_name": "Meta AI",
+    "description": "Meta AI via web - www.meta.ai",
+    "url": "https://www.meta.ai/",
+    "prompt_selector": "div[contenteditable='true'], textarea",
+    "cookies_file": "cookies_meta.json"
+  },
+  {
+    "name": "gemini",
+    "display_name": "Google Gemini",
+    "description": "Google Gemini via web - gemini.google.com",
+    "url": "https://gemini.google.com/",
+    "prompt_selector": "div[contenteditable='true'], textarea",
+    "cookies_file": "cookies_gemini.json"
+  },
+  {
+    "name": "grok",
+    "display_name": "Grok (xAI)",
+    "description": "Grok via web - grok.com",
+    "url": "https://grok.com/",
+    "prompt_selector": "div[contenteditable='true'], textarea",
+    "cookies_file": "cookies_grok.json"
+  }
+]
